@@ -11,7 +11,7 @@ export default function ExpenseTrack() {
   // Fetch all expenses from backend
   useEffect(() => {
     axios
-      .get("http://localhost:3001/api/getdata")
+      .get("https://backend-iytn.onrender.com/api/getdata")
       .then((res) => setExpenses(res.data))
       .catch((err) => console.error("Fetch error:", err));
   }, []);
@@ -36,7 +36,7 @@ export default function ExpenseTrack() {
     } else {
       // Add new expense
       axios
-        .post("http://localhost:3001/api/postdata", {
+        .post("https://backend-iytn.onrender.com/api/postdata", {
           title,
           amount: Number(amount),
         })
@@ -48,7 +48,7 @@ export default function ExpenseTrack() {
   // Delete Expense
   const deleteExpense = (id) => {
     axios
-      .delete(`http://localhost:3001/api/${id}`)
+      .delete(`https://backend-iytn.onrender.com/api/${id}`)
       .then(() => setExpenses(expenses.filter((exp) => exp._id !== id)))
       .catch((err) => console.error("Delete error:", err));
   };
